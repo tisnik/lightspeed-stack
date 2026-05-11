@@ -1194,9 +1194,8 @@ def test_score_multiplier_mapping_not_loaded() -> None:
         _ = cfg.score_multiplier_mapping
 
 
-def test_init_from_dict_fake_data() -> None:
-    """Test the configuration initialization from dictionary with config values."""
-    config_dict: dict[str, Any] = {
+wrong_configurations = [
+    {
         "name": "Colin Adams",
         "service": {
             "host": "Serve control majority quite approach step.",
@@ -1228,7 +1227,7 @@ def test_init_from_dict_fake_data() -> None:
         },
         "llama_stack": {
             "url": "https://www.west.com/",
-            "api_key": "unsupported_type_<class 'pydantic.types.SecretStr'>",
+            "api_key": "api_key",
             "use_as_library_client": False,
             "library_client_config_path": "Strategy stand return catch range professor.",
             "timeout": 486,
@@ -1265,7 +1264,7 @@ def test_init_from_dict_fake_data() -> None:
                     "Throughout speak next.",
                     "Least may discuss name. Whatever bad take.",
                 ],
-                "timeout": "unsupported_type_typing.Annotated[int, Gt(gt=0)]",
+                "timeout": "10",
             },
             {
                 "name": "Christopher Cain",
@@ -1277,7 +1276,7 @@ def test_init_from_dict_fake_data() -> None:
                     "return": "Wide enter ago name vote.",
                 },
                 "headers": ["Him keep finally."],
-                "timeout": "unsupported_type_typing.Annotated[int, Gt(gt=0)]",
+                "timeout": "10",
             },
             {
                 "name": "Eric Martin",
@@ -1292,7 +1291,7 @@ def test_init_from_dict_fake_data() -> None:
                     "Girl year process team.",
                     "Able computer anyone keep must back finish century",
                 ],
-                "timeout": "unsupported_type_typing.Annotated[int, Gt(gt=0)]",
+                "timeout": "10",
             },
         ],
         "authentication": {
@@ -1300,12 +1299,10 @@ def test_init_from_dict_fake_data() -> None:
             "skip_tls_verification": True,
             "skip_for_health_probes": False,
             "skip_for_metrics": True,
-            "k8s_cluster_api": "unsupported_type_<class 'pydantic.networks.AnyHttpUrl'>",
+            "k8s_cluster_api": "http://1.2.3.4",
             "k8s_ca_cert_path": None,
             "jwk_config": None,
-            "api_key_config": {
-                "api_key": "unsupported_type_<class 'pydantic.types.SecretStr'>"
-            },
+            "api_key_config": {"api_key": "key"},
             "rh_identity_config": None,
         },
         "authorization": None,
@@ -1415,7 +1412,476 @@ def test_init_from_dict_fake_data() -> None:
             "offline": True,
             "chunk_filter_query": "Foreign space system.",
         },
-    }
+    },
+    {
+        "name": "Nathaniel Williams",
+        "service": {
+            "host": "Response although crime less.",
+            "port": 275,
+            "base_url": None,
+            "auth_enabled": False,
+            "workers": 218,
+            "color_log": False,
+            "access_log": True,
+            "tls_config": {
+                "tls_certificate_path": None,
+                "tls_key_path": None,
+                "tls_key_password": "password",
+            },
+            "root_path": "Model something information strong focus.",
+            "cors": {
+                "allow_origins": [
+                    "Clear yes hand language.",
+                    "Expect will research bag. Standard exist property ",
+                    "Cultural their pass explain.",
+                ],
+                "allow_credentials": False,
+                "allow_methods": [
+                    "Wind hit work arm man.",
+                    "Cost food serve national education. Painting wide ",
+                ],
+                "allow_headers": ["At professor seek hospital eat."],
+            },
+        },
+        "llama_stack": {
+            "url": None,
+            "api_key": None,
+            "use_as_library_client": None,
+            "library_client_config_path": None,
+            "timeout": 890,
+        },
+        "user_data_collection": {
+            "feedback_enabled": True,
+            "feedback_storage": "Travel consider themselves trouble there budget.",
+            "transcripts_enabled": True,
+            "transcripts_storage": None,
+        },
+        "database": {
+            "sqlite": {"db_path": "Will yet other need."},
+            "postgres": {
+                "host": "Bar various source each.",
+                "port": 236,
+                "db": "Positive federal organization between knowledge so",
+                "user": "Score girl far party example care leave.",
+                "password": "mOW_ES5n7TB6",
+                "namespace": "If act test financial.",
+                "ssl_mode": "Whether bad still use.",
+                "gss_encmode": "Easy agreement authority again rest.",
+                "ca_cert_path": None,
+            },
+        },
+        "mcp_servers": [
+            {
+                "name": "William Roberts",
+                "provider_id": "Represent surface stuff.",
+                "url": "https://www.rodriguez-cross.com/",
+                "authorization_headers": {
+                    "a": "Technology sure event third go for institution mon",
+                    "yourself": "Physical will coach.",
+                    "size": "Start wife body.",
+                },
+                "headers": [
+                    "Be recognize civil.",
+                    "Senior system give.",
+                    "Son often them resource her star thus.",
+                ],
+                "timeout": None,
+            },
+            {
+                "name": "William Maldonado",
+                "provider_id": "Yet our town hope.",
+                "url": "https://collins.com/",
+                "authorization_headers": {
+                    "then": "Water we provide those leader less chance.",
+                    "whom": "Theory single common sing what for.",
+                    "manage": "Keep thousand ground.",
+                },
+                "headers": [
+                    "Those manage area light. Large authority lawyer le",
+                    "Bed speech adult imagine office.",
+                    "Decide analysis.",
+                ],
+                "timeout": "-10",
+            },
+            {
+                "name": "Ashley Walker",
+                "provider_id": "Case film eight early.",
+                "url": "https://www.davis-wilson.net/",
+                "authorization_headers": {
+                    "amount": "Customer religious let ever.",
+                    "deep": "Nothing indeed but argue single.",
+                },
+                "headers": ["Call street easy lawyer quite enjoy once task. Mil"],
+                "timeout": "-10",
+            },
+        ],
+        "authentication": {
+            "module": "Arrive blue lose rock.",
+            "skip_tls_verification": False,
+            "skip_for_health_probes": True,
+            "skip_for_metrics": False,
+            "k8s_cluster_api": None,
+            "k8s_ca_cert_path": None,
+            "jwk_config": {
+                "url": "https://davis.org/",
+                "jwt_configuration": {
+                    "user_id_claim": "Reason million financial raise environmental.",
+                    "username_claim": "Wonder activity yes.",
+                    "role_rules": [
+                        {
+                            "jsonpath": "Social bank buy.",
+                            "operator": "-10",
+                            "negate": True,
+                            "value": "any_value_placeholder",
+                            "roles": ["Part house prevent story."],
+                        },
+                        {
+                            "jsonpath": "Outside how note when. Mr entire affect usually.",
+                            "operator": "-10",
+                            "negate": False,
+                            "value": "any_value_placeholder",
+                            "roles": [
+                                "Store child serious.",
+                                "Song plant sense technology though consider. Paren",
+                            ],
+                        },
+                        {
+                            "jsonpath": "Family light power color number. Treat court stuff",
+                            "operator": "-10",
+                            "negate": False,
+                            "value": "any_value_placeholder",
+                            "roles": [
+                                "Television set over offer task north card those."
+                            ],
+                        },
+                    ],
+                },
+            },
+            "api_key_config": None,
+            "rh_identity_config": None,
+        },
+        "authorization": {
+            "access_rules": [
+                {"role": "Perhaps idea nothing attorney word.", "actions": ["action1"]},
+                {
+                    "role": "Somebody operation involve alone. Born example sea",
+                    "actions": ["action1", "action2"],
+                },
+                {
+                    "role": "Watch most resource word information allow ability",
+                    "actions": ["action1"],
+                },
+            ]
+        },
+        "customization": {
+            "profile_path": None,
+            "disable_query_system_prompt": False,
+            "disable_shield_ids_override": True,
+            "system_prompt_path": "/",
+            "system_prompt": None,
+            "agent_card_path": "/",
+            "agent_card_config": None,
+            "custom_profile": "/",
+        },
+        "inference": {
+            "default_model": "Fill popular near avoid family year.",
+            "default_provider": "Pressure former operation table start president.",
+        },
+        "conversation_cache": {
+            "type": "noop",
+            "memory": None,
+            "sqlite": {"db_path": "Own relationship back production."},
+            "postgres": {
+                "host": "Religious author little. Thought bring agency rais",
+                "port": 146,
+                "db": "Other safe resource stop.",
+                "user": "Concern center once music activity bad thousand.",
+                "password": "zHDCzco5^S2Z",
+                "namespace": None,
+                "ssl_mode": "Run claim process large.",
+                "gss_encmode": "Tv east art pattern.",
+                "ca_cert_path": "certs",
+            },
+        },
+        "byok_rag": [
+            {
+                "rag_id": "Tonight relate there record.",
+                "rag_type": "Politics development real play main chair capital ",
+                "embedding_model": "Prepare memory outside.",
+                "embedding_dimension": 449,
+                "vector_db_id": "Political right gun law public group rock.",
+                "db_path": "Consider still recognize church. Area suggest noth",
+                "score_multiplier": 183.85,
+            },
+            {
+                "rag_id": "One again under respond poor beyond.",
+                "rag_type": "Six base physical.",
+                "embedding_model": "Surface that choice.",
+                "embedding_dimension": 736,
+                "vector_db_id": "Forget level other agreement.",
+                "db_path": "Argue pull out race town.",
+                "score_multiplier": 225.21,
+            },
+        ],
+        "a2a_state": {"sqlite": None, "postgres": None},
+        "quota_handlers": {
+            "sqlite": None,
+            "postgres": {
+                "host": "List fund yes kitchen meet southern.",
+                "port": 337,
+                "db": "Five rest behavior tonight couple.",
+                "user": "Message accept whom authority.",
+                "password": "B28qYhFt$nnI",
+                "namespace": None,
+                "ssl_mode": "Teach wide worry tend.",
+                "gss_encmode": "Example weight window.",
+                "ca_cert_path": "/",
+            },
+            "limiters": [
+                {
+                    "type": "user_limiter",
+                    "name": "Michael Jackson",
+                    "initial_quota": 371,
+                    "quota_increase": 210,
+                    "period": "Start skill miss economy know.",
+                },
+                {
+                    "type": "user_limiter",
+                    "name": "Richard Moore",
+                    "initial_quota": 189,
+                    "quota_increase": 83,
+                    "period": "Another maybe certainly week trouble.",
+                },
+                {
+                    "type": "user_limiter",
+                    "name": "Charlene Perez",
+                    "initial_quota": 387,
+                    "quota_increase": 8,
+                    "period": "Music difficult enough.",
+                },
+            ],
+            "scheduler": {
+                "period": 825,
+                "database_reconnection_count": 896,
+                "database_reconnection_delay": 669,
+            },
+            "enable_token_history": False,
+        },
+        "azure_entra_id": {
+            "tenant_id": "id",
+            "client_id": "id",
+            "client_secret": "secrer",
+            "scope": "Claim thought seat use.",
+        },
+        "rlsapi_v1": {"allow_verbose_infer": False, "quota_subject": None},
+        "splunk": {
+            "enabled": True,
+            "url": "https://george-ferguson.org/",
+            "token_path": "/",
+            "index": None,
+            "source": "Successful impact understand least generation cust",
+            "timeout": 850,
+            "verify_ssl": False,
+        },
+        "deployment_environment": "Vote mean answer simply turn project.",
+        "rag": {
+            "inline": [
+                "Billion job provide take other.",
+                "Eight total figure surface development include out",
+                "Which from cover not choice bring sister front.",
+            ],
+            "tool": ["Ground appear group institution."],
+        },
+        "okp": {"rhokp_url": None, "offline": False, "chunk_filter_query": None},
+    },
+    {
+        "name": "Patricia Henderson",
+        "service": {
+            "host": "High politics role market party factor yourself. H",
+            "port": 65,
+            "base_url": "Song list by notice decide politics.",
+            "auth_enabled": True,
+            "workers": 248,
+            "color_log": True,
+            "access_log": False,
+            "tls_config": {
+                "tls_certificate_path": None,
+                "tls_key_path": None,
+                "tls_key_password": "xyzzy",
+            },
+            "root_path": "Another budget miss with my pretty.",
+            "cors": {
+                "allow_origins": ["Edge yes right already."],
+                "allow_credentials": True,
+                "allow_methods": ["Include game information. Become mother today."],
+                "allow_headers": [
+                    "Recent crime seem ten.",
+                    "Yeah fear design few.",
+                    "Information story.",
+                ],
+            },
+        },
+        "llama_stack": {
+            "url": "http://www.cameron.com/",
+            "api_key": "xyzzy",
+            "use_as_library_client": False,
+            "library_client_config_path": "Write past admit hand area surface.",
+            "timeout": 237,
+        },
+        "user_data_collection": {
+            "feedback_enabled": True,
+            "feedback_storage": "Poor have happen.",
+            "transcripts_enabled": True,
+            "transcripts_storage": "Ask sport choice along. Ever concern table traditi",
+        },
+        "database": {"sqlite": None, "postgres": None},
+        "mcp_servers": [
+            {
+                "name": "Colleen Villanueva",
+                "provider_id": "Every present recently.",
+                "url": "https://www.taylor.com/",
+                "authorization_headers": {
+                    "four": "Have camera third when across too.",
+                    "dinner": "Field run hair.",
+                    "machine": "Time find prove war.",
+                },
+                "headers": [
+                    "Author heavy now start allow focus.",
+                    "Eat before by.",
+                    "Serious best talk never.",
+                ],
+                "timeout": None,
+            }
+        ],
+        "authentication": {
+            "module": "Offer to trouble off chance personal.",
+            "skip_tls_verification": False,
+            "skip_for_health_probes": False,
+            "skip_for_metrics": True,
+            "k8s_cluster_api": None,
+            "k8s_ca_cert_path": "xyzzy",
+            "jwk_config": None,
+            "api_key_config": None,
+            "rh_identity_config": None,
+        },
+        "authorization": {
+            "access_rules": [
+                {
+                    "role": "Nothing development house computer.",
+                    "actions": ["xyzzy", "xyzzy", "xyzzy"],
+                },
+                {
+                    "role": "Sea coach without wide audience pretty fine.",
+                    "actions": ["xyzzy", "xyzzy"],
+                },
+                {
+                    "role": "Will Congress style picture deal. Explain set assu",
+                    "actions": ["xyzzy"],
+                },
+            ]
+        },
+        "customization": {
+            "profile_path": None,
+            "disable_query_system_prompt": False,
+            "disable_shield_ids_override": False,
+            "system_prompt_path": "xyzzy",
+            "system_prompt": None,
+            "agent_card_path": "xyzzy",
+            "agent_card_config": None,
+            "custom_profile": None,
+        },
+        "inference": {
+            "default_model": "Television someone about wall join.",
+            "default_provider": None,
+        },
+        "conversation_cache": {
+            "type": None,
+            "memory": None,
+            "sqlite": None,
+            "postgres": None,
+        },
+        "byok_rag": [
+            {
+                "rag_id": "Something worker campaign war through.",
+                "rag_type": "Check simple since next then statement.",
+                "embedding_model": "Class third author series.",
+                "embedding_dimension": 211,
+                "vector_db_id": "Less put site alone amount.",
+                "db_path": "Live child most throughout.",
+                "score_multiplier": 252.41,
+            }
+        ],
+        "a2a_state": {"sqlite": None, "postgres": None},
+        "quota_handlers": {
+            "sqlite": None,
+            "postgres": None,
+            "limiters": [
+                {
+                    "type": "xyzzy",
+                    "name": "Jerry Brown",
+                    "initial_quota": 532,
+                    "quota_increase": 509,
+                    "period": "After determine almost make yeah support. Away tak",
+                },
+                {
+                    "type": "xyzzy",
+                    "name": "James Martin",
+                    "initial_quota": 167,
+                    "quota_increase": 278,
+                    "period": "Book gas exist these.",
+                },
+                {
+                    "type": "xyzzy",
+                    "name": "Mr. Douglas Kelly DDS",
+                    "initial_quota": 210,
+                    "quota_increase": 930,
+                    "period": "Section many southern new.",
+                },
+            ],
+            "scheduler": {
+                "period": 984,
+                "database_reconnection_count": 118,
+                "database_reconnection_delay": 961,
+            },
+            "enable_token_history": False,
+        },
+        "azure_entra_id": {
+            "tenant_id": "xyzzy",
+            "client_id": "xyzzy",
+            "client_secret": "xyzzy",
+            "scope": "Spring billion represent town actually serious mor",
+        },
+        "rlsapi_v1": {"allow_verbose_infer": False, "quota_subject": "xyzzy"},
+        "splunk": {
+            "enabled": False,
+            "url": "http://www.bell.com/",
+            "token_path": "xyzzy",
+            "index": None,
+            "source": "Risk condition boy conference particularly control",
+            "timeout": 398,
+            "verify_ssl": False,
+        },
+        "deployment_environment": "Mouth view form.",
+        "rag": {
+            "inline": [
+                "Interesting during product himself attack Democrat",
+                "Decision I order particularly.",
+                "Couple reflect relate two agree local.",
+            ],
+            "tool": ["Her society move lay.", "Network material like."],
+        },
+        "okp": {
+            "rhokp_url": "xyzzy",
+            "offline": False,
+            "chunk_filter_query": "Beautiful society within.",
+        },
+    },
+]
+
+
+@pytest.mark.parametrize("config_dict", wrong_configurations)
+def test_init_from_dict_fake_data(config_dict: dict[str, Any]) -> None:
+    """Test the configuration initialization from dictionary with config values."""
     with pytest.raises(ValueError):
         cfg = AppConfig()
         cfg.init_from_dict(config_dict)
