@@ -34,7 +34,7 @@ product questions using backend LLM services, agents, and RAG databases.
 
 ## Status of Lightspeed Core Stack versions
 
-[Status of Lightspeed Core Stack versions](https://lightspeed-core.github.io/lightspeed-stack/versions_status.html)
+[Status of Lightspeed Core Stack versions](https://lightspeed-core.github.io/lightspeed-stack/version_status.html)
 
 [Supported versions](https://lightspeed-core.github.io/lightspeed-stack/versions_supported.html)
 
