@@ -1,5 +1,7 @@
 """Unit tests for UserDataCollection model."""
 
+from pathlib import Path
+
 import pytest
 
 from models.config import UserDataCollection
@@ -71,30 +73,29 @@ def test_user_data_collection_transcripts_disabled() -> None:
         )  # pyright: ignore[reportCallIssue]
 
 
-def test_user_data_collection_wrong_directory_path() -> None:
-    """Test the UserDataCollection constructor for wrong directory path.
+def test_user_data_collection_wrong_directory_path(tmp_path: Path) -> None:
+    """Test the UserDataCollection constructor for non-writable directory paths.
 
-    Verify UserDataCollection raises InvalidConfigurationError when provided
-    storage paths point to non-writable directories.
-
-    Ensures that enabling feedback with feedback_storage='/root' raises
-    InvalidConfigurationError with message "Check directory to store feedback
-    '/root' is not writable", and enabling transcripts with
-    transcripts_storage='/root' raises InvalidConfigurationError with message
-    "Check directory to store transcripts '/root' is not writable".
+    Creates a temporary directory with no write permission and verifies that
+    UserDataCollection raises InvalidConfigurationError for both feedback and
+    transcript storage paths.
     """
+    non_writable = tmp_path / "no_write"
+    non_writable.mkdir()
+    non_writable.chmod(0o444)
+
     with pytest.raises(
         InvalidConfigurationError,
-        match="Check directory to store feedback '/root' is not writable",
+        match=f"Check directory to store feedback '{non_writable}' is not writable",
     ):
         _ = UserDataCollection(
-            feedback_enabled=True, feedback_storage="/root"
+            feedback_enabled=True, feedback_storage=str(non_writable)
         )  # pyright: ignore[reportCallIssue]
 
     with pytest.raises(
         InvalidConfigurationError,
-        match="Check directory to store transcripts '/root' is not writable",
+        match=f"Check directory to store transcripts '{non_writable}' is not writable",
     ):
         _ = UserDataCollection(
-            transcripts_enabled=True, transcripts_storage="/root"
+            transcripts_enabled=True, transcripts_storage=str(non_writable)
         )  # pyright: ignore[reportCallIssue]
