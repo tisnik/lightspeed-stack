@@ -14,6 +14,7 @@ from cache.in_memory_cache import InMemoryCache
 from cache.sqlite_cache import SQLiteCache
 from configuration import AppConfig, LogicError
 from models.config import CustomProfile, ModelContextProtocolServer
+from utils.checks import InvalidConfigurationError
 
 
 # pylint: disable=broad-exception-caught,protected-access
@@ -1876,12 +1877,436 @@ wrong_configurations = [
             "chunk_filter_query": "Beautiful society within.",
         },
     },
+    {
+        "name": "Sheila Cabrera",
+        "service": {
+            "host": "Woman price everyone bed ask.",
+            "port": 1,
+            "base_url": None,
+            "auth_enabled": False,
+            "workers": 897,
+            "color_log": False,
+            "access_log": True,
+            "tls_config": {
+                "tls_certificate_path": "xyzzy",
+                "tls_key_path": "xyzzy",
+                "tls_key_password": None,
+            },
+            "root_path": "Spring break along appear court ground table.",
+            "cors": {
+                "allow_origins": ["However Democrat at. Safe modern nothing this smil"],
+                "allow_credentials": False,
+                "allow_methods": [
+                    "Tell bit appear.",
+                    "Phone right page oil pass weight final.",
+                    "Go hand service. Knowledge close west part.",
+                ],
+                "allow_headers": ["Experience east herself outside."],
+            },
+        },
+        "llama_stack": {
+            "url": "https://www.savage.com/",
+            "api_key": "xyzzy",
+            "use_as_library_client": False,
+            "library_client_config_path": None,
+            "timeout": 117,
+        },
+        "user_data_collection": {
+            "feedback_enabled": False,
+            "feedback_storage": None,
+            "transcripts_enabled": True,
+            "transcripts_storage": "Despite different develop traditional member out.",
+        },
+        "database": {"sqlite": None, "postgres": None},
+        "mcp_servers": [
+            {
+                "name": "Jorge Hanson",
+                "provider_id": "A young travel center item I above.",
+                "url": "https://tran.com/",
+                "authorization_headers": {
+                    "while": "Figure rock certain law.",
+                    "cultural": "Opportunity leader open until improve turn.",
+                    "already": "Today happy book along member born. Woman yard sin",
+                },
+                "headers": ["Short green whatever season."],
+                "timeout": None,
+            }
+        ],
+        "authentication": {
+            "module": "Able tax east short town ball past.",
+            "skip_tls_verification": True,
+            "skip_for_health_probes": False,
+            "skip_for_metrics": False,
+            "k8s_cluster_api": None,
+            "k8s_ca_cert_path": "xyzzy",
+            "jwk_config": {
+                "url": "https://www.craig.biz/",
+                "jwt_configuration": {
+                    "user_id_claim": "Matter far chance approach citizen strategy.",
+                    "username_claim": "Again design gun break future oil.",
+                    "role_rules": [
+                        {
+                            "jsonpath": "Result street yourself allow five.",
+                            "operator": "xyzzy",
+                            "negate": False,
+                            "value": "any_value_placeholder",
+                            "roles": [
+                                "Into bad arm indicate simply world.",
+                                "Without together determine student True use base.",
+                            ],
+                        },
+                        {
+                            "jsonpath": "Growth police position.",
+                            "operator": "xyzzy",
+                            "negate": True,
+                            "value": "any_value_placeholder",
+                            "roles": ["Simply smile war article attorney."],
+                        },
+                    ],
+                },
+            },
+            "api_key_config": None,
+            "rh_identity_config": None,
+        },
+        "authorization": None,
+        "customization": {
+            "profile_path": None,
+            "disable_query_system_prompt": True,
+            "disable_shield_ids_override": True,
+            "system_prompt_path": "xyzzy",
+            "system_prompt": "Join music develop let.",
+            "agent_card_path": None,
+            "agent_card_config": {
+                "him": "any_value_placeholder",
+                "section": "any_value_placeholder",
+            },
+            "custom_profile": None,
+        },
+        "inference": {
+            "default_model": "Happy share answer ready money.",
+            "default_provider": "Relate do leader. More attention article our.",
+        },
+        "conversation_cache": {
+            "type": "xyzzy",
+            "memory": {"max_entries": 648},
+            "sqlite": {"db_path": "Any discover sign music. Value north success growt"},
+            "postgres": {
+                "host": "Piece week health occur onto bar.",
+                "port": 356,
+                "db": "Recently decision cut treatment message push read.",
+                "user": "Business election man treatment. Physical what ins",
+                "password": "B8svtzzW(szI",
+                "namespace": "Own book possible walk.",
+                "ssl_mode": "With station plant region political too nothing.",
+                "gss_encmode": "Assume they so city.",
+                "ca_cert_path": None,
+            },
+        },
+        "byok_rag": [
+            {
+                "rag_id": "Ever analysis three perhaps.",
+                "rag_type": "Ever truth skin.",
+                "embedding_model": "Type toward never hair relate before.",
+                "embedding_dimension": 619,
+                "vector_db_id": "Learn computer positive nor yet notice.",
+                "db_path": "Sort rule soldier relationship. Wife front kid cit",
+                "score_multiplier": 310.63,
+            },
+            {
+                "rag_id": "Question to front often.",
+                "rag_type": "But catch hear happy.",
+                "embedding_model": "Hard message wait least focus left daughter reflec",
+                "embedding_dimension": 97,
+                "vector_db_id": "Create visit green. Throw more tend throw game.",
+                "db_path": "Rest could recent test door.",
+                "score_multiplier": 224.06,
+            },
+            {
+                "rag_id": "Read hand over fight president feel letter. Over h",
+                "rag_type": "Set visit describe seat space play.",
+                "embedding_model": "Lawyer early term direction.",
+                "embedding_dimension": 119,
+                "vector_db_id": "Day store girl writer have would participant.",
+                "db_path": "Later research explain first lose probably.",
+                "score_multiplier": 627.97,
+            },
+        ],
+        "a2a_state": {
+            "sqlite": {"db_path": "Write herself each generation finally attorney."},
+            "postgres": None,
+        },
+        "quota_handlers": {
+            "sqlite": {"db_path": "Around paper step read."},
+            "postgres": {
+                "host": "By cell color state arrive.",
+                "port": 803,
+                "db": "This whatever time require eye.",
+                "user": "Term fund me not. Southern until also.",
+                "password": "#ooW^bFTB$a1",
+                "namespace": None,
+                "ssl_mode": "Story may pressure.",
+                "gss_encmode": "Already but brother.",
+                "ca_cert_path": "xyzzy",
+            },
+            "limiters": [
+                {
+                    "type": "xyzzy",
+                    "name": "Kathleen Livingston",
+                    "initial_quota": 953,
+                    "quota_increase": 640,
+                    "period": "World enough bad agent.",
+                },
+                {
+                    "type": "xyzzy",
+                    "name": "Ana Williams",
+                    "initial_quota": 567,
+                    "quota_increase": 124,
+                    "period": "Car traditional present. Traditional usually raise",
+                },
+            ],
+            "scheduler": {
+                "period": 265,
+                "database_reconnection_count": 535,
+                "database_reconnection_delay": 430,
+            },
+            "enable_token_history": True,
+        },
+        "azure_entra_id": {
+            "tenant_id": "xyzzy",
+            "client_id": "xyzzy",
+            "client_secret": "xyzzy",
+            "scope": "Hair social blood dream Mr.",
+        },
+        "rlsapi_v1": {"allow_verbose_infer": True, "quota_subject": "xyzzy"},
+        "splunk": {
+            "enabled": True,
+            "url": "https://taylor.org/",
+            "token_path": "xyzzy",
+            "index": None,
+            "source": "Probably small develop admit ever. Lot four method",
+            "timeout": 283,
+            "verify_ssl": False,
+        },
+        "deployment_environment": "Want hair product.",
+        "rag": {
+            "inline": [
+                "Himself fear read here finally ask teacher.",
+                "Enjoy standard off.",
+            ],
+            "tool": ["Them author financial production."],
+        },
+        "okp": {
+            "rhokp_url": "xyzzy",
+            "offline": False,
+            "chunk_filter_query": "Industry as appear us. Lead dream public compare.",
+        },
+    },
+    {
+        "name": "Marisa Johnson",
+        "service": {
+            "host": "Service visit sort name. Democratic increase desig",
+            "port": 260,
+            "base_url": "Deal level four maintain yeah arrive.",
+            "auth_enabled": False,
+            "workers": 448,
+            "color_log": True,
+            "access_log": True,
+            "tls_config": {
+                "tls_certificate_path": None,
+                "tls_key_path": "xyzzy",
+                "tls_key_password": None,
+            },
+            "root_path": "War under seem wide itself present.",
+            "cors": {
+                "allow_origins": ["However performance serve city close season."],
+                "allow_credentials": True,
+                "allow_methods": ["Official send ground.", "She sort drug heavy."],
+                "allow_headers": [
+                    "Vote already window four still talk among lawyer.",
+                    "Fly fact then five.",
+                    "Bad factor she sort.",
+                ],
+            },
+        },
+        "llama_stack": {
+            "url": None,
+            "api_key": "xyzzy",
+            "use_as_library_client": True,
+            "library_client_config_path": "Spend difficult identify go.",
+            "timeout": 689,
+        },
+        "user_data_collection": {
+            "feedback_enabled": True,
+            "feedback_storage": "Seem have part movie.",
+            "transcripts_enabled": True,
+            "transcripts_storage": None,
+        },
+        "database": {
+            "sqlite": {"db_path": "Book arrive hair seat popular."},
+            "postgres": None,
+        },
+        "mcp_servers": [
+            {
+                "name": "Pamela Frazier",
+                "provider_id": "Policy kind among effort.",
+                "url": "https://www.austin-richards.biz/",
+                "authorization_headers": {
+                    "indeed": "Design kid official along lead nice trial.",
+                    "spend": "Yourself sit continue.",
+                },
+                "headers": [
+                    "Official end industry challenge system these cell.",
+                    "Others cultural notice friend. Number air you insi",
+                    "Nothing argue use like game.",
+                ],
+                "timeout": None,
+            },
+            {
+                "name": "James Chavez",
+                "provider_id": "May smile develop TV. Trouble child piece same.",
+                "url": "https://www.harper.com/",
+                "authorization_headers": {"month": "Himself coach letter recently."},
+                "headers": ["Ago around car after too.", "Lawyer foot media standard."],
+                "timeout": "xyzzy",
+            },
+        ],
+        "authentication": {
+            "module": "May American industry available. Language off word",
+            "skip_tls_verification": False,
+            "skip_for_health_probes": True,
+            "skip_for_metrics": True,
+            "k8s_cluster_api": "xyzzy",
+            "k8s_ca_cert_path": None,
+            "jwk_config": None,
+            "api_key_config": None,
+            "rh_identity_config": None,
+        },
+        "authorization": {
+            "access_rules": [
+                {
+                    "role": "Oil add these though. Plan nothing dark.",
+                    "actions": ["xyzzy", "xyzzy"],
+                },
+                {
+                    "role": "Sister where owner west policy stop entire. From t",
+                    "actions": ["xyzzy", "xyzzy"],
+                },
+            ]
+        },
+        "customization": {
+            "profile_path": None,
+            "disable_query_system_prompt": False,
+            "disable_shield_ids_override": False,
+            "system_prompt_path": "xyzzy",
+            "system_prompt": None,
+            "agent_card_path": "xyzzy",
+            "agent_card_config": None,
+            "custom_profile": None,
+        },
+        "inference": {
+            "default_model": "Continue try science sense rich name.",
+            "default_provider": "Report whether hear chair.",
+        },
+        "conversation_cache": {
+            "type": "xyzzy",
+            "memory": {"max_entries": 666},
+            "sqlite": {"db_path": "Court size your eye choose."},
+            "postgres": None,
+        },
+        "byok_rag": [
+            {
+                "rag_id": "Authority kind apply arm manager local reveal.",
+                "rag_type": "Seem authority miss.",
+                "embedding_model": "Have news quality.",
+                "embedding_dimension": 310,
+                "vector_db_id": "Education hot full her. Serve mention save executi",
+                "db_path": "Every popular bit.",
+                "score_multiplier": 918.43,
+            },
+            {
+                "rag_id": "Avoid baby miss want education.",
+                "rag_type": "Sing answer rule soon.",
+                "embedding_model": "Year let example you paper develop tough.",
+                "embedding_dimension": 985,
+                "vector_db_id": "Operation conference phone.",
+                "db_path": "All effort True see.",
+                "score_multiplier": 788.57,
+            },
+        ],
+        "a2a_state": {
+            "sqlite": {"db_path": "Green example walk become return front."},
+            "postgres": {
+                "host": "Culture stop finally break.",
+                "port": 854,
+                "db": "Like direction music.",
+                "user": "Newspaper compare color indicate lay.",
+                "password": "(5BuFj&vKMmV",
+                "namespace": "Summer risk where attention music mean recently.",
+                "ssl_mode": "Local run already walk. Manager contain eight rais",
+                "gss_encmode": "Economy picture long level seek. Learn hair foreig",
+                "ca_cert_path": "xyzzy",
+            },
+        },
+        "quota_handlers": {
+            "sqlite": {"db_path": "Good score hospital create son."},
+            "postgres": None,
+            "limiters": [
+                {
+                    "type": "xyzzy",
+                    "name": "Matthew Saunders",
+                    "initial_quota": 987,
+                    "quota_increase": 279,
+                    "period": "Pass style back item.",
+                }
+            ],
+            "scheduler": {
+                "period": 288,
+                "database_reconnection_count": 475,
+                "database_reconnection_delay": 526,
+            },
+            "enable_token_history": False,
+        },
+        "azure_entra_id": {
+            "tenant_id": "xyzzy",
+            "client_id": "xyzzy",
+            "client_secret": "xyzzy",
+            "scope": "Clearly fact general study.",
+        },
+        "rlsapi_v1": {"allow_verbose_infer": True, "quota_subject": "xyzzy"},
+        "splunk": {
+            "enabled": True,
+            "url": None,
+            "token_path": None,
+            "index": "Ok them various ok sit board.",
+            "source": "Interest degree foreign already.",
+            "timeout": 948,
+            "verify_ssl": False,
+        },
+        "deployment_environment": "Consumer center sign skin total.",
+        "rag": {
+            "inline": [
+                "True four lawyer sound. Light fund former art.",
+                "Perhaps theory remain. Marriage person put food.",
+                "Run behind single material else media.",
+            ],
+            "tool": [
+                "Another Congress part seat bit.",
+                "Able main door under. Early consumer speech less c",
+                "Eat read shake three. Development cell mission.",
+            ],
+        },
+        "okp": {
+            "rhokp_url": None,
+            "offline": True,
+            "chunk_filter_query": "And drug brother tell specific realize hit.",
+        },
+    },
 ]
 
 
 @pytest.mark.parametrize("config_dict", wrong_configurations)
 def test_init_from_dict_fake_data(config_dict: dict[str, Any]) -> None:
     """Test the configuration initialization from dictionary with config values."""
-    with pytest.raises(ValueError):
+    with pytest.raises((ValueError, InvalidConfigurationError)):
         cfg = AppConfig()
         cfg.init_from_dict(config_dict)
