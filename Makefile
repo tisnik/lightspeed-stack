@@ -60,7 +60,7 @@ security-check: ## Check the project for security issues
 	uv run bandit -c pyproject.toml -r src tests
 
 format: ## Format the code into unified format
-	uv run black  --line-length 88 .
+	uv run black --line-length 88 src tests
 	uv run ruff check src tests --fix
 
 schema:	## Generate OpenAPI schema file
