@@ -82,6 +82,7 @@ The service includes comprehensive user data collection capabilities for various
     * [Packages on PyPI and Test PyPI](#packages-on-pypi-and-test-pypi)
 * [Contributing](#contributing)
 * [Testing](#testing)
+* [Releasing](#releasing)
 * [License](#license)
 * [Additional tools](#additional-tools)
     * [Utility to generate OpenAPI schema](#utility-to-generate-openapi-schema)
@@ -1220,6 +1221,10 @@ If this configuration file does not exist, you will be prompted to specify API t
 * See [testing](docs/testing.md) guide.
 
 
+
+# Releasing
+
+* See [releasing](docs/releasing.md) guide.
 
 # License
 
