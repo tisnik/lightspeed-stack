@@ -195,14 +195,34 @@ verify_connectivity() {
         # First check /readiness to see if port-forward is alive (accept 200, 401, or 503)
         http_code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 5 "http://localhost:$local_port/readiness" 2>/dev/null) || http_code="000"
 
-        if [[ "$http_code" == "200" || "$http_code" == "401" || "$http_code" == "503" ]]; then
+        # LCS returns 503 when provider health fails (see health.py). Intentionally broken
+        # Llama proxy e2e stays 503 forever while the tunnel is still fine. Only accept 503
+        # on the last attempt so normal restarts keep retrying while providers warm up
+        # (transient 503 then 200) and we do not short-circuit other suites on first 503.
+        if [[ "$http_code" == "503" ]]; then
+            if [[ "$attempt" -eq "$max_attempts" ]]; then
+                echo "[e2e-ops] /readiness=503 after $max_attempts attempts — LCS reachable; providers still unhealthy (expected for some e2e)"
+                return 0
+            fi
+            echo "[e2e-ops] /readiness=503 (attempt $attempt/$max_attempts); retrying in case providers recover..."
+        fi
+
+        if [[ "$http_code" == "200" || "$http_code" == "401" ]]; then
             # Port-forward works; now verify the app is fully initialized by hitting
             # a real endpoint. /v1/models requires the Llama Stack handshake to complete.
-            # Accept 200 (no auth) or 401 (auth enabled) — both prove the full app
-            # stack is up, not just the TCP socket.
+            # Accept 200 (no auth) or 401/403 (auth) — both prove the full app stack is up.
+            #
+            # Proxy/TLS e2e scenarios intentionally misconfigure Llama (e.g. unreachable
+            # HTTP proxy). LCS still answers /v1/models with 5xx once the route exists;
+            # treating those as success avoids false failures on restart-lightspeed while
+            # still rejecting connection errors (000).
             local models_code
             models_code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "http://localhost:$local_port/v1/models" 2>/dev/null) || models_code="000"
-            if [[ "$models_code" == "200" || "$models_code" == "401" ]]; then
+            if [[ "$models_code" == "200" || "$models_code" == "401" || "$models_code" == "403" ]]; then
+                return 0
+            fi
+            if [[ "$models_code" =~ ^5[0-9][0-9]$ ]]; then
+                echo "[e2e-ops] /v1/models=$models_code (LCS reachable; Llama/provider error expected in some e2e)"
                 return 0
             fi
             echo "[e2e-ops] /readiness=$http_code but /v1/models=$models_code (app still initializing, attempt $attempt/$max_attempts)"
@@ -563,6 +583,7 @@ cmd_wait_for_pod() {
 cmd_update_configmap() {
     local configmap_name="${1:?ConfigMap name required}"
     local source_file="${2:?Source file required}"
+    local configmap_key="${3:-lightspeed-stack.yaml}"
 
     echo "Updating ConfigMap $configmap_name from $source_file..."
 
@@ -575,7 +596,7 @@ cmd_update_configmap() {
     # If delete succeeds but create fails the ConfigMap is gone and every
     # subsequent attempt cascades into failure.
     if ! oc create configmap "$configmap_name" -n "$NAMESPACE" \
-            --from-file="lightspeed-stack.yaml=$source_file" \
+            --from-file="${configmap_key}=${source_file}" \
             --dry-run=client -o yaml | oc apply -n "$NAMESPACE" -f -; then
         echo "ERROR: oc apply for ConfigMap $configmap_name failed" >&2
         return 1
@@ -586,8 +607,9 @@ cmd_update_configmap() {
 
 cmd_get_configmap_content() {
     local configmap_name="${1:?ConfigMap name required}"
+    local configmap_key="${2:-lightspeed-stack.yaml}"
     oc get configmap "$configmap_name" -n "$NAMESPACE" \
-        -o 'jsonpath={.data.lightspeed-stack\.yaml}'
+        -o "go-template={{index .data \"$configmap_key\"}}"
 }
 
 cmd_disrupt_llama_stack() {

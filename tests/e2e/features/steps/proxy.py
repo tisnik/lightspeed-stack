@@ -13,8 +13,6 @@ feature file so readers see every restart. Cleanup restores the backup file
 """
 
 import asyncio
-import os
-import shutil
 import subprocess
 import tempfile
 import threading
@@ -23,19 +21,20 @@ from pathlib import Path
 from typing import Any, Optional
 
 import trustme
-import yaml
 from behave import given, then  # pyright: ignore[reportAttributeAccessIssue]
 from behave.runner import Context
 
+from tests.e2e.utils.llama_config_utils import (
+    backup_llama_config,
+    load_llama_config,
+    restore_llama_config_if_modified,
+    write_llama_config,
+)
 from tests.e2e.utils.utils import (
     is_prow_environment,
     restart_container,
     wait_for_lightspeed_stack_http_ready,
 )
-
-# Llama Stack config — mounted into the container from the host
-_LLAMA_STACK_CONFIG = "run.yaml"
-_LLAMA_STACK_CONFIG_BACKUP = "run.yaml.proxy-backup"
 
 
 def _is_docker_mode() -> bool:
@@ -126,18 +125,6 @@ def _get_proxy_host(is_docker: bool) -> str:
     return "172.17.0.1"
 
 
-def _load_llama_config() -> dict[str, Any]:
-    """Load the base Llama Stack run config."""
-    with open(_LLAMA_STACK_CONFIG, encoding="utf-8") as f:
-        return yaml.safe_load(f)
-
-
-def _write_config(config: dict[str, Any], path: str) -> None:
-    """Write a YAML config file."""
-    with open(path, "w", encoding="utf-8") as f:
-        yaml.dump(config, f, default_flow_style=False)
-
-
 def _find_inference_provider(
     context: Context, config: dict[str, Any]
 ) -> dict[str, Any]:
@@ -175,12 +162,6 @@ def _find_inference_provider(
     )
 
 
-def _backup_llama_config() -> None:
-    """Create a backup of the current run.yaml if not already backed up."""
-    if not os.path.exists(_LLAMA_STACK_CONFIG_BACKUP):
-        shutil.copy(_LLAMA_STACK_CONFIG, _LLAMA_STACK_CONFIG_BACKUP)
-
-
 # --- Background Steps ---
 
 
@@ -214,11 +195,8 @@ def restore_if_modified(context: Context) -> None:
     _stop_proxy(context, "tunnel_proxy", "proxy_loop")
     _stop_proxy(context, "interception_proxy", "interception_proxy_loop")
 
-    if os.path.exists(_LLAMA_STACK_CONFIG_BACKUP):
-        print(
-            f"Restoring original Llama Stack config from {_LLAMA_STACK_CONFIG_BACKUP}..."
-        )
-        shutil.move(_LLAMA_STACK_CONFIG_BACKUP, _LLAMA_STACK_CONFIG)
+    if restore_llama_config_if_modified():
+        print("Restoring original Llama Stack config from backup...")
 
 
 # --- Service Restart Steps ---
@@ -264,10 +242,10 @@ def start_tunnel_proxy(context: Context, port: int) -> None:
 @given("Llama Stack is configured to route inference through the tunnel proxy")
 def configure_llama_tunnel_proxy(context: Context) -> None:
     """Modify run.yaml with proxy config pointing to the tunnel proxy."""
-    _backup_llama_config()
+    backup_llama_config()
     proxy = context.tunnel_proxy
     proxy_host = _get_proxy_host(context.is_docker_mode)
-    config = _load_llama_config()
+    config = load_llama_config()
     provider = _find_inference_provider(context, config)
 
     if "config" not in provider:
@@ -278,14 +256,14 @@ def configure_llama_tunnel_proxy(context: Context) -> None:
         }
     }
 
-    _write_config(config, _LLAMA_STACK_CONFIG)
+    write_llama_config(config)
 
 
 @given('Llama Stack is configured to route inference through proxy "{proxy_url}"')
 def configure_llama_unreachable_proxy(context: Context, proxy_url: str) -> None:
     """Modify run.yaml with a proxy URL (may be unreachable)."""
-    _backup_llama_config()
-    config = _load_llama_config()
+    backup_llama_config()
+    config = load_llama_config()
     provider = _find_inference_provider(context, config)
 
     if "config" not in provider:
@@ -296,7 +274,7 @@ def configure_llama_unreachable_proxy(context: Context, proxy_url: str) -> None:
         }
     }
 
-    _write_config(config, _LLAMA_STACK_CONFIG)
+    write_llama_config(config)
 
 
 # --- Interception Proxy Steps ---
@@ -346,10 +324,10 @@ def start_interception_proxy(context: Context, port: int) -> None:
 )
 def configure_llama_interception_with_ca(context: Context) -> None:
     """Modify run.yaml with interception proxy and CA cert config."""
-    _backup_llama_config()
+    backup_llama_config()
     proxy = context.interception_proxy
     proxy_host = _get_proxy_host(context.is_docker_mode)
-    config = _load_llama_config()
+    config = load_llama_config()
     provider = _find_inference_provider(context, config)
 
     if "config" not in provider:
@@ -364,7 +342,7 @@ def configure_llama_interception_with_ca(context: Context) -> None:
         },
     }
 
-    _write_config(config, _LLAMA_STACK_CONFIG)
+    write_llama_config(config)
 
 
 @given(
@@ -373,10 +351,10 @@ def configure_llama_interception_with_ca(context: Context) -> None:
 )
 def configure_llama_interception_no_ca(context: Context) -> None:
     """Modify run.yaml with interception proxy but NO CA cert."""
-    _backup_llama_config()
+    backup_llama_config()
     proxy = context.interception_proxy
     proxy_host = _get_proxy_host(context.is_docker_mode)
-    config = _load_llama_config()
+    config = load_llama_config()
     provider = _find_inference_provider(context, config)
 
     if "config" not in provider:
@@ -387,7 +365,7 @@ def configure_llama_interception_no_ca(context: Context) -> None:
         },
     }
 
-    _write_config(config, _LLAMA_STACK_CONFIG)
+    write_llama_config(config)
 
 
 # --- TLS Steps ---
@@ -396,8 +374,8 @@ def configure_llama_interception_no_ca(context: Context) -> None:
 @given('Llama Stack is configured with minimum TLS version "{version}"')
 def configure_llama_tls_version(context: Context, version: str) -> None:
     """Modify run.yaml with TLS version config."""
-    _backup_llama_config()
-    config = _load_llama_config()
+    backup_llama_config()
+    config = load_llama_config()
     provider = _find_inference_provider(context, config)
 
     if "config" not in provider:
@@ -408,14 +386,14 @@ def configure_llama_tls_version(context: Context, version: str) -> None:
         }
     }
 
-    _write_config(config, _LLAMA_STACK_CONFIG)
+    write_llama_config(config)
 
 
 @given('Llama Stack is configured with ciphers "{ciphers}"')
 def configure_llama_ciphers(context: Context, ciphers: str) -> None:
     """Modify run.yaml with cipher suite config."""
-    _backup_llama_config()
-    config = _load_llama_config()
+    backup_llama_config()
+    config = load_llama_config()
     provider = _find_inference_provider(context, config)
 
     if "config" not in provider:
@@ -426,7 +404,7 @@ def configure_llama_ciphers(context: Context, ciphers: str) -> None:
         }
     }
 
-    _write_config(config, _LLAMA_STACK_CONFIG)
+    write_llama_config(config)
 
 
 # --- Proxy Verification Steps ---
