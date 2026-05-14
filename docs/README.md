@@ -75,6 +75,10 @@ See the full documentation at [`../README.md`](../README.md) or browse sub-pages
 
 [List of e2e scenarios](https://lightspeed-core.github.io/lightspeed-stack/e2e_scenarios.html)
 
+## Releasing
+
+[Releasing](https://lightspeed-core.github.io/lightspeed-stack/releasing.html)
+
 ## Demos
 
 [LCORE introduction](https://lightspeed-core.github.io/lightspeed-stack/demos/lcore/lcore.html#/)
