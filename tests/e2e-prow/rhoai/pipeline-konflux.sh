@@ -345,6 +345,12 @@ export E2E_LSC_HOSTNAME="localhost"
 export E2E_JWKS_HOSTNAME="localhost"
 export E2E_LLAMA_HOSTNAME="localhost"
 export E2E_LLAMA_PORT="8321"
+# Same pattern as tests/e2e-prow/rhoai/pipeline.sh and .github/workflows/e2e_tests_*.yaml:
+# Behave {MODEL}/{PROVIDER} use these when set; avoids wrong fallbacks if /v1/models
+# discovery in before_all is empty (matches run-ci.yaml openai + E2E_OPENAI_MODEL).
+: "${E2E_DEFAULT_PROVIDER_OVERRIDE:=openai}"
+: "${E2E_DEFAULT_MODEL_OVERRIDE:=${E2E_OPENAI_MODEL:-gpt-4o-mini}}"
+export E2E_DEFAULT_PROVIDER_OVERRIDE E2E_DEFAULT_MODEL_OVERRIDE
 log "LCS accessible at: http://$E2E_LSC_HOSTNAME:8080"
 log "Mock JWKS accessible at: http://$E2E_JWKS_HOSTNAME:8000"
 log "Llama Stack (e2e client hooks) at: http://$E2E_LLAMA_HOSTNAME:$E2E_LLAMA_PORT"

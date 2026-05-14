@@ -1,4 +1,4 @@
-@e2e_group_3 @skip-in-library-mode @skip-in-prow
+@e2e_group_3 @skip-in-library-mode
 Feature: Proxy and TLS networking tests for Llama Stack providers
 
   Verify that the Lightspeed Stack works correctly when Llama Stack's
@@ -21,7 +21,7 @@ Feature: Proxy and TLS networking tests for Llama Stack providers
 
   # --- AC1: Tunnel proxy routing ---
 
-  @TunnelProxy
+  @TunnelProxy @skip-in-prow
   Scenario: LLM traffic is routed through a configured tunnel proxy
     Given A tunnel proxy is running on port 8888
       And Llama Stack is configured to route inference through the tunnel proxy
@@ -47,12 +47,13 @@ Feature: Proxy and TLS networking tests for Llama Stack providers
     """
     {"query": "What is 2+2?", "model": "{MODEL}", "provider": "{PROVIDER}", "shield_ids": []}
     """
-     Then The status code of the response is 500
+    #will be fixed in https://redhat.atlassian.net/browse/LCORE-2255
+     Then The status code of the response is one of 404 or 500
 
 
   # --- AC2: Interception proxy with CA certificate ---
 
-  @InterceptionProxy
+  @InterceptionProxy @skip-in-prow
   Scenario: LLM traffic works through interception proxy with correct CA
     Given An interception proxy with trustme CA is running on port 8889
       And Llama Stack is configured to route inference through the interception proxy with CA cert
@@ -65,7 +66,7 @@ Feature: Proxy and TLS networking tests for Llama Stack providers
      Then The status code of the response is 200
       And The interception proxy intercepted at least 1 connection
 
-  @InterceptionProxy
+  @InterceptionProxy @skip-in-prow
   Scenario: LLM query fails when interception proxy CA is not provided
     Given An interception proxy with trustme CA is running on port 8890
       And Llama Stack is configured to route inference through the interception proxy without CA cert

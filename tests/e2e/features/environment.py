@@ -60,7 +60,7 @@ def _fetch_models_from_service() -> dict:
         host_env = os.getenv("E2E_LSC_HOSTNAME", "localhost")
         port_env = os.getenv("E2E_LSC_PORT", "8080")
         url = f"http://{host_env}:{port_env}/v1/models"
-        response = requests.get(url, timeout=5)
+        response = requests.get(url, params={"model_type": "llm"}, timeout=15)
         response.raise_for_status()
         data = response.json()
 
@@ -87,7 +87,7 @@ def before_all(context: Context) -> None:
     Attempts to detect a default LLM model and provider via
     _fetch_models_from_service() and stores results in context.default_model
     and context.default_provider; if detection fails, falls back to
-    "gpt-4-turbo" and "openai".
+    ``FALLBACK_MODEL`` / ``FALLBACK_PROVIDER`` (aligned with server-mode e2e YAML).
 
     Parameters:
     ----------

@@ -14,11 +14,10 @@ from typing import Any, Optional
 from behave import given  # pyright: ignore[reportAttributeAccessIssue]
 from behave.runner import Context
 
-from tests.e2e.features.steps.proxy import (
-    _LLAMA_STACK_CONFIG,
-    _backup_llama_config,
-    _load_llama_config,
-    _write_config,
+from tests.e2e.utils.llama_config_utils import (
+    backup_llama_config,
+    load_llama_config,
+    write_llama_config,
 )
 
 _TLS_PROVIDER_BASE: dict[str, Any] = {
@@ -80,14 +79,14 @@ def _configure_tls(tls_config: dict[str, Any], base_url: Optional[str] = None) -
         tls_config: The TLS configuration dictionary.
         base_url: Optional base URL override for the provider.
     """
-    _backup_llama_config()
-    config = _load_llama_config()
+    backup_llama_config()
+    config = load_llama_config()
     provider = _ensure_tls_provider(config)
     provider.setdefault("config", {}).setdefault("network", {})
     if base_url is not None:
         provider["config"]["base_url"] = base_url
     provider["config"]["network"]["tls"] = tls_config
-    _write_config(config, _LLAMA_STACK_CONFIG)
+    write_llama_config(config)
 
 
 # --- Background Steps ---

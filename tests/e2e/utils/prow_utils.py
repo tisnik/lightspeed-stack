@@ -96,7 +96,8 @@ def restart_pod(container_name: str) -> None:
         timeout = 420
     elif container_name in _LIGHTSPEED_RESTART_NAMES:
         op = "restart-lightspeed"
-        timeout = 200
+        # Pod wait (up to ~120s) + port-forward retries + slow Konflux/Prow clusters.
+        timeout = 320
     else:
         print(
             f"Warning: restart_pod({container_name!r}) unknown; "
@@ -161,11 +162,30 @@ def disrupt_llama_stack_pod() -> bool:
 _configmap_backups: dict[str, str] = {}
 
 
-def backup_configmap_to_memory() -> str:
-    """Backup the current ConfigMap content to memory."""
+def get_configmap_content(
+    configmap_name: str = "lightspeed-stack-config",
+    configmap_key: str = "lightspeed-stack.yaml",
+) -> str:
+    """Return a ConfigMap value by name/key."""
+    result = run_e2e_ops(
+        "get-configmap-content",
+        [configmap_name, configmap_key],
+        timeout=30,
+    )
+    if result.returncode != 0:
+        raise subprocess.CalledProcessError(
+            result.returncode, "get-configmap-content", result.stderr
+        )
+    return result.stdout
+
+
+def backup_configmap_to_memory(
+    configmap_name: str = "lightspeed-stack-config",
+    configmap_key: str = "lightspeed-stack.yaml",
+) -> str:
+    """Backup a ConfigMap entry to memory."""
     namespace = get_namespace()
-    configmap_name = "lightspeed-stack-config"
-    backup_key = f"{namespace}/{configmap_name}"
+    backup_key = f"{namespace}/{configmap_name}:{configmap_key}"
 
     if backup_key in _configmap_backups:
         print(f"ConfigMap backup already exists for {backup_key}")
@@ -174,14 +194,9 @@ def backup_configmap_to_memory() -> str:
     print(f"Backing up ConfigMap {configmap_name} to memory...")
 
     try:
-        result = run_e2e_ops("get-configmap-content", [configmap_name], timeout=30)
-        if result.returncode != 0:
-            raise subprocess.CalledProcessError(
-                result.returncode, "get-configmap-content", result.stderr
-            )
-
-        _configmap_backups[backup_key] = result.stdout
-        print(f"ConfigMap backed up to memory ({len(result.stdout)} bytes)")
+        config_content = get_configmap_content(configmap_name, configmap_key)
+        _configmap_backups[backup_key] = config_content
+        print(f"ConfigMap backed up to memory ({len(config_content)} bytes)")
         return backup_key
 
     except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
@@ -196,14 +211,22 @@ def remove_configmap_backup(backup_key: str) -> None:
         print(f"ConfigMap backup {backup_key} removed from memory")
 
 
-def _recreate_configmap(configmap_name: str, source_file: str) -> None:
+def _recreate_configmap(
+    configmap_name: str,
+    source_file: str,
+    configmap_key: str = "lightspeed-stack.yaml",
+) -> None:
     """Update a ConfigMap from a file via oc apply.
 
     Args:
         configmap_name: Name of the ConfigMap.
         source_file: Path to the file to create the ConfigMap from.
     """
-    result = run_e2e_ops("update-configmap", [configmap_name, source_file], timeout=60)
+    result = run_e2e_ops(
+        "update-configmap",
+        [configmap_name, source_file, configmap_key],
+        timeout=60,
+    )
     if result.returncode != 0:
         print(f"update-configmap stdout: {result.stdout}")
         print(f"update-configmap stderr: {result.stderr}")
@@ -212,14 +235,16 @@ def _recreate_configmap(configmap_name: str, source_file: str) -> None:
         )
 
 
-def update_config_configmap(source: str) -> None:
-    """Update the lightspeed-stack-config ConfigMap with new config in Prow environment.
+def update_config_configmap(
+    source: str,
+    configmap_name: str = "lightspeed-stack-config",
+    configmap_key: str = "lightspeed-stack.yaml",
+) -> None:
+    """Update a ConfigMap entry with new config in Prow environment.
 
     Args:
         source: Either a file path or a backup key from _configmap_backups.
     """
-    configmap_name = "lightspeed-stack-config"
-
     # Check if source is a backup key (restore from memory)
     if source in _configmap_backups:
         config_content = _configmap_backups[source]
@@ -231,7 +256,7 @@ def update_config_configmap(source: str) -> None:
             temp_path = f.name
 
         try:
-            _recreate_configmap(configmap_name, temp_path)
+            _recreate_configmap(configmap_name, temp_path, configmap_key)
             print(f"✓ ConfigMap {configmap_name} restored successfully")
         except subprocess.CalledProcessError as e:
             print(f"Failed to restore ConfigMap: {e}")
@@ -245,7 +270,7 @@ def update_config_configmap(source: str) -> None:
     print(f"Updating ConfigMap {configmap_name} with config from {source}...")
 
     try:
-        _recreate_configmap(configmap_name, source)
+        _recreate_configmap(configmap_name, source, configmap_key)
         print(f"ConfigMap {configmap_name} updated successfully")
     except subprocess.CalledProcessError as e:
         print(f"Failed to update ConfigMap: {e}")

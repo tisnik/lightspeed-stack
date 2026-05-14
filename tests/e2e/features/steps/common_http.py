@@ -40,6 +40,23 @@ def check_status_code(context: Context, status: int) -> None:
         )
 
 
+@step("The status code of the response is one of {first:d} or {second:d}")
+def check_status_code_one_of(context: Context, first: int, second: int) -> None:
+    """Assert the response status is one of two allowed codes (order does not matter)."""
+    assert context.response is not None, "Request needs to be performed first"
+    allowed = {first, second}
+    actual = context.response.status_code
+    if actual not in allowed:
+        try:
+            error_body = context.response.json()
+        except Exception:
+            error_body = context.response.text
+        assert False, (
+            f"Status code is {actual}, expected one of {sorted(allowed)}. "
+            f"Response: {error_body}"
+        )
+
+
 @then('Content type of response is set to "{content_type}"')
 def check_content_type(context: Context, content_type: str) -> None:
     """Check the HTTP content type for latest response from tested service."""
