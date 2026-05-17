@@ -3418,6 +3418,228 @@ wrong_configurations = [
         },
         "okp": {"rhokp_url": "xyzzy", "offline": True, "chunk_filter_query": None},
     },
+    {
+        "name": "Rodney Scott",
+        "service": {
+            "host": "Account blue each real child guy. Thing tree expec",
+            "port": 481,
+            "base_url": "Learn development choice matter.",
+            "auth_enabled": True,
+            "workers": 106,
+            "color_log": True,
+            "access_log": True,
+            "tls_config": {
+                "tls_certificate_path": "xyzzy",
+                "tls_key_path": None,
+                "tls_key_password": None,
+            },
+            "root_path": "Foot anything coach window return wife.",
+            "cors": {
+                "allow_origins": ["Option table world friend.", "Maybe reality want."],
+                "allow_credentials": True,
+                "allow_methods": [
+                    "Article resource skill include. Scene center huge ",
+                    "Maintain home newspaper fish.",
+                    "Smile yourself make career.",
+                ],
+                "allow_headers": [
+                    "Writer change building brother test.",
+                    "Draw less customer with data product.",
+                    "Mrs however purpose so performance.",
+                ],
+            },
+        },
+        "llama_stack": {
+            "url": "http://willis-jensen.com/",
+            "api_key": "xyzzy",
+            "use_as_library_client": None,
+            "library_client_config_path": None,
+            "timeout": 365,
+        },
+        "user_data_collection": {
+            "feedback_enabled": True,
+            "feedback_storage": None,
+            "transcripts_enabled": True,
+            "transcripts_storage": None,
+        },
+        "database": {
+            "sqlite": None,
+            "postgres": {
+                "host": "Positive once activity scientist possible rise art",
+                "port": 991,
+                "db": "Would indeed another defense song.",
+                "user": "One finally size product.",
+                "password": "$C7KCoSKvh_f",
+                "namespace": "Night surface whom.",
+                "ssl_mode": "Affect federal thing accept party perform.",
+                "gss_encmode": "Soon easy manager arm suffer.",
+                "ca_cert_path": "xyzzy",
+            },
+        },
+        "mcp_servers": [
+            {
+                "name": "Wendy Ramirez",
+                "provider_id": "Else speak time recent.",
+                "url": "http://hahn.org/",
+                "authorization_headers": {
+                    "politics": "Free teach dark born. Sport spend hair require eco"
+                },
+                "headers": [
+                    "Hair team school.",
+                    "Oil war ok much war movement.",
+                    "Example arm test hundred.",
+                ],
+                "timeout": None,
+            },
+            {
+                "name": "Ronnie Johnson",
+                "provider_id": "Turn kind body draw will again.",
+                "url": "http://www.cannon.biz/",
+                "authorization_headers": {
+                    "baby": "Discover manage democratic how.",
+                    "daughter": "Of firm everybody project. Language interest metho",
+                },
+                "headers": ["They financial artist."],
+                "timeout": None,
+            },
+        ],
+        "authentication": {
+            "module": "Nearly local really commercial.",
+            "skip_tls_verification": True,
+            "skip_for_health_probes": False,
+            "skip_for_metrics": True,
+            "k8s_cluster_api": None,
+            "k8s_ca_cert_path": None,
+            "jwk_config": None,
+            "api_key_config": None,
+            "rh_identity_config": {
+                "required_entitlements": [
+                    "Shake parent degree turn wind language.",
+                    "Military several move least realize.",
+                    "Word these group tax spend yes.",
+                ],
+                "max_header_size": 19,
+            },
+        },
+        "authorization": {
+            "access_rules": [
+                {
+                    "role": "Per charge white street painting continue yet choo",
+                    "actions": ["xyzzy"],
+                },
+                {"role": "Model evening life.", "actions": ["xyzzy"]},
+                {
+                    "role": "Should explain join father expert able minute stoc",
+                    "actions": ["xyzzy", "xyzzy", "xyzzy"],
+                },
+            ]
+        },
+        "customization": None,
+        "inference": {"default_model": None, "default_provider": None},
+        "conversation_cache": {
+            "type": "xyzzy",
+            "memory": {"max_entries": 138},
+            "sqlite": {"db_path": "Also describe later garden."},
+            "postgres": {
+                "host": "Apply attention board century.",
+                "port": 940,
+                "db": "Often boy also never.",
+                "user": "Financial a program matter.",
+                "password": "K78mJGlP(#qV",
+                "namespace": "Relationship science team business same wall.",
+                "ssl_mode": "There base meet.",
+                "gss_encmode": "Why realize five view.",
+                "ca_cert_path": "xyzzy",
+            },
+        },
+        "byok_rag": [
+            {
+                "rag_id": "Stop choice sing prepare our both traditional.",
+                "rag_type": "Four account action. Herself measure speech full t",
+                "embedding_model": "Positive now since middle.",
+                "embedding_dimension": 799,
+                "vector_db_id": "Movie word mouth major identify law manage they.",
+                "db_path": "Finally hot investment role attorney meet husband.",
+                "score_multiplier": 515.98,
+            },
+            {
+                "rag_id": "Throw two action station store respond among.",
+                "rag_type": "Accept exist also happy.",
+                "embedding_model": "Box structure arrive. Front suffer civil fund invo",
+                "embedding_dimension": 443,
+                "vector_db_id": "Begin born decade instead.",
+                "db_path": "Interest easy remember here fast win. Despite budg",
+                "score_multiplier": 2.92,
+            },
+        ],
+        "a2a_state": {
+            "sqlite": {"db_path": "Trouble stop speech traditional."},
+            "postgres": {
+                "host": "Buy change blue despite.",
+                "port": 252,
+                "db": "Lot kitchen start fire challenge build.",
+                "user": "Mission new grow people prepare too new. Blood may",
+                "password": "F4LJgEg#leA+",
+                "namespace": None,
+                "ssl_mode": "Home worry beautiful camera economy.",
+                "gss_encmode": "Tend none vote image. North identify power.",
+                "ca_cert_path": None,
+            },
+        },
+        "quota_handlers": {
+            "sqlite": {"db_path": "Movement great always True."},
+            "postgres": None,
+            "limiters": [
+                {
+                    "type": "xyzzy",
+                    "name": "Ricardo Collier",
+                    "initial_quota": 741,
+                    "quota_increase": 379,
+                    "period": "Hotel whatever important its society take add ente",
+                },
+                {
+                    "type": "xyzzy",
+                    "name": "Nicole Turner",
+                    "initial_quota": 571,
+                    "quota_increase": 166,
+                    "period": "Newspaper parent get result.",
+                },
+            ],
+            "scheduler": {
+                "period": 99,
+                "database_reconnection_count": 132,
+                "database_reconnection_delay": 701,
+            },
+            "enable_token_history": False,
+        },
+        "azure_entra_id": None,
+        "rlsapi_v1": {"allow_verbose_infer": False, "quota_subject": "xyzzy"},
+        "splunk": {
+            "enabled": False,
+            "url": None,
+            "token_path": "xyzzy",
+            "index": None,
+            "source": "Anyone wrong increase over hundred.",
+            "timeout": 155,
+            "verify_ssl": True,
+        },
+        "deployment_environment": "West local subject clearly. Push question in.",
+        "rag": {
+            "inline": [
+                "Garden up certain success student others may.",
+                "Face can produce.",
+            ],
+            "tool": [
+                "Though appear collection night message high.",
+                "Knowledge cup fact.",
+            ],
+        },
+        "okp": {
+            "rhokp_url": "xyzzy",
+            "offline": False,
+            "chunk_filter_query": "Maybe assume region thus.",
+        },
+    },
 ]
 
 
