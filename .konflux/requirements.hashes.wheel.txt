@@ -359,8 +359,9 @@ sentence-transformers==5.2.0 \
     --hash=sha256:f7c0e190f00f22031351b9a1a6c166d95f79a7374ddff5bfb520303ee074f37a
 sentry-sdk==2.64.0 \
     --hash=sha256:c8ab786820bd8a817d3041d6f3e16ea2604a33e25b662d0c695918351445ddfd
-setuptools==81.0.0 \
-    --hash=sha256:f6e4d2e589c5fa14b5bbda3d170eac0db8852c7fe7a357f708d172726353778e
+setuptools==83.0.0 \
+    --hash=sha256:025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef \
+    --hash=sha256:29b23c360f22f414dc7336bb39178cc7bcbf6021ed2733cde173f09dba19abb3
 shellingham==1.5.4 \
     --hash=sha256:c62d421a942ec6b2400acb0091f31f7bd860d133dfcc8e7c5a252afedba20f8f
 six==1.17.0 \
