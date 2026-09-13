@@ -71,8 +71,8 @@ from utils.endpoints import (
     check_configuration_loaded,
     resolve_response_context,
 )
-from utils.mcp_headers import mcp_headers_dependency
-from utils.mcp_oauth_probe import check_mcp_auth
+from utils.mcp.mcp_headers import mcp_headers_dependency
+from utils.mcp.mcp_oauth_probe import check_mcp_auth
 from utils.ogx_serialization import dump_ogx_model
 from utils.otel_tracing import (
     SpanAttributes,

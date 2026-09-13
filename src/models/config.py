@@ -31,7 +31,7 @@ from pydantic.dataclasses import dataclass
 import constants
 from log import get_logger
 from utils import checks
-from utils.mcp_auth_headers import resolve_authorization_headers
+from utils.mcp.mcp_auth_headers import resolve_authorization_headers
 from utils.types import CompiledPatterns
 
 logger = get_logger(__name__)

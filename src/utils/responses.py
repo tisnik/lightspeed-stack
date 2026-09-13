@@ -110,7 +110,7 @@ from models.common.turn_summary import (
 )
 from models.config import RagStore
 from models.database.conversations import UserConversation
-from utils.mcp_headers import (
+from utils.mcp.mcp_headers import (
     McpHeaders,
     build_mcp_headers,
     find_unresolved_auth_headers,
