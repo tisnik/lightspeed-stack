@@ -16,7 +16,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from cache.cache_entry import CacheEntry
 from cache.cache_error import CacheError
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import QueryRequest
 from models.api.responses.error import (
     InternalServerErrorResponse,

@@ -12,7 +12,7 @@ from pydantic import AnyUrl
 from pytest_mock import MockerFixture
 
 import constants
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.common.query import SolrVectorSearchRequest
 from models.common.turn_summary import RAGChunk, ReferencedDocument
 from utils.otel_tracing import SpanAttributes, SpanEvents

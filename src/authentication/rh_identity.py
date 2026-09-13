@@ -12,7 +12,7 @@ from typing import Any, Optional
 from fastapi import HTTPException, Request
 
 from authentication.interface import NO_AUTH_TUPLE, AuthInterface, AuthTuple
-from configuration import configuration
+from configuration.configuration import configuration
 from constants import (
     DEFAULT_RH_IDENTITY_MAX_HEADER_SIZE,
     DEFAULT_VIRTUAL_PATH,

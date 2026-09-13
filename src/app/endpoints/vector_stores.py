@@ -13,7 +13,7 @@ from authentication import get_auth_dependency
 from authentication.interface import AuthTuple
 from authorization.middleware import authorize
 from client.ogx import AsyncOgxClientHolder
-from configuration import configuration
+from configuration.configuration import configuration
 from constants import DEFAULT_MAX_FILE_UPLOAD_SIZE
 from log import get_logger
 from models.api.requests import (

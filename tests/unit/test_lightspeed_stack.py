@@ -7,7 +7,7 @@ import pytest
 import yaml
 
 import lightspeed_stack
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from lightspeed_stack import create_argument_parser, main
 
 LEGACY_DEPRECATION_MARKER = "DEPRECATED: the two-file configuration"

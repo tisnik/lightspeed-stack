@@ -15,7 +15,7 @@ from pydantic_ai.messages import ModelRequest, ModelResponse, ToolReturnPart
 from pydantic_ai.run import AgentRunResult
 from pydantic_ai.usage import RunUsage
 
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from metrics import recording
 from models.api.responses.error import (

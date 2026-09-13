@@ -16,7 +16,7 @@ from pytest_mock import MockerFixture
 
 from app.endpoints import tools
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.responses.successful import ToolsResponse
 from models.common.tools import ListedMcpTool
 from models.config import (

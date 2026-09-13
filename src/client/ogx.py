@@ -14,11 +14,11 @@ from ogx_client import ApiException, AsyncOgxClient
 
 import constants
 from authorization.azure_token_manager import AzureEntraIDManager
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger, setup_logging
 from models.api.responses.error import ServiceUnavailableResponse
 from models.config import OgxConfiguration
-from ogx_configuration import (
+from configuration.ogx_configuration import (
     YamlDumper,
     enrich_azure_entra_id_inference,
     enrich_byok_rag,

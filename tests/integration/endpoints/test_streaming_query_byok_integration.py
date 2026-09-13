@@ -14,7 +14,7 @@ from pytest_mock import AsyncMockType, MockerFixture
 import constants
 from app.endpoints.streaming_query import streaming_query_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import QueryRequest
 from tests.integration.conftest import (
     create_file_search_agent_stream_events,

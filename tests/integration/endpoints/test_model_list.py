@@ -11,7 +11,7 @@ from pytest_mock import AsyncMockType, MockerFixture
 
 from app.endpoints.models import models_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import ModelFilter
 from tests.integration.conftest import (
     make_openai_model,

@@ -26,7 +26,7 @@ from app.endpoints.feedback import (
     update_feedback_status,
 )
 from authentication.interface import AuthTuple
-from configuration import AppConfig, configuration
+from configuration.configuration import AppConfig, configuration
 from models.api.requests import FeedbackRequest, FeedbackStatusUpdateRequest
 from models.config import UserDataCollection
 from tests.unit.utils.auth_helpers import mock_authorization_resolvers

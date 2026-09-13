@@ -12,7 +12,7 @@ import aiohttp
 from fastapi import HTTPException
 
 import constants
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from log import get_logger
 from models.api.responses.error import UnauthorizedResponse
 from utils.mcp_headers import McpHeaders, build_mcp_headers

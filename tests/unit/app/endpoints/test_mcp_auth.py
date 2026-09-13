@@ -14,7 +14,7 @@ from pytest_mock import MockerFixture
 # Import the function directly to bypass decorators
 from app.endpoints import mcp_auth
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.responses.successful import MCPClientAuthOptionsResponse
 from models.config import (
     Configuration,

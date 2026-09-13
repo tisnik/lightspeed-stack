@@ -23,8 +23,8 @@ import pytest
 import yaml
 from pydantic import ValidationError
 
-from configuration import configuration
-from ogx_configuration import (
+from configuration.configuration import configuration
+from configuration.ogx_configuration import (
     CONDITIONAL_OPENAI_PROVIDER_ID,
     generate_configuration,
     load_default_baseline,

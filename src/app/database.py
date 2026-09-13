@@ -8,7 +8,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.engine.base import Engine
 from sqlalchemy.orm import Session, sessionmaker
 
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from models.config import PostgreSQLDatabaseConfiguration, SQLiteDatabaseConfiguration
 from models.database.base import Base

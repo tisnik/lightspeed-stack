@@ -16,7 +16,7 @@ from authorization.resolvers import (
     NoopRolesResolver,
     RolesResolver,
 )
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from models.api.responses.error import (
     ForbiddenResponse,

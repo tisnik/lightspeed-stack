@@ -35,7 +35,7 @@ from app.endpoints.rlsapi_v1 import (
 )
 from authentication.interface import AuthTuple
 from authentication.rh_identity import RHIdentityData
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests.rlsapi import (
     RlsapiV1Attachment,
     RlsapiV1Context,

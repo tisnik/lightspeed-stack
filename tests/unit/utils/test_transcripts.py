@@ -4,7 +4,7 @@ import hashlib
 
 from pytest_mock import MockerFixture
 
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import QueryRequest
 from models.common.turn_summary import ToolCallSummary, ToolResultSummary, TurnSummary
 from utils.transcripts import (

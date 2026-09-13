@@ -11,7 +11,7 @@ from ogx_client import AsyncOgxClient
 from pydantic_ai_skills import SkillsCapability
 from pytest_mock import MockerFixture
 
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.common.responses.responses_api_params import ResponsesApiParams
 from models.config import (
     QuestionValidityConfig,

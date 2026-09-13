@@ -6,7 +6,7 @@ import psycopg2
 import pytest
 
 from app import database
-from configuration import AppConfig, configuration
+from configuration.configuration import AppConfig, configuration
 
 
 @pytest.fixture(name="configuration_filename_sqlite")

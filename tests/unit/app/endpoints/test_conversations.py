@@ -22,7 +22,7 @@ from app.endpoints.conversations_v1 import (
     get_conversations_list_endpoint_handler,
     update_conversation_endpoint_handler,
 )
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import ConversationUpdateRequest
 from models.api.responses.error import (
     ForbiddenResponse,

@@ -16,7 +16,7 @@ import constants
 from app.database import get_session
 from cache.cache_entry import CacheEntry
 from cache.cache_error import CacheError
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from models.api.requests import QueryRequest
 from models.api.responses.error import (

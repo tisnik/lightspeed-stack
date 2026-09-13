@@ -8,7 +8,7 @@ from ogx_client import AsyncOgxClient
 from opentelemetry import trace
 from pydantic_ai.exceptions import AgentRunError
 
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from constants import OBFUSCATION_REJECTION_MESSAGE
 from log import get_logger
 from models.api.requests import QueryRequest

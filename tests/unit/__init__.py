@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from configuration import configuration
+from configuration.configuration import configuration
 
 config_dict: dict[str, Any] = {
     "name": "test",

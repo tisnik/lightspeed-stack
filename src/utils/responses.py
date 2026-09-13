@@ -83,7 +83,7 @@ from ogx_client import ApiException, AsyncOgxClient
 from opentelemetry import trace
 
 import constants
-from configuration import configuration
+from configuration.configuration import configuration
 from constants import DEFAULT_RAG_TOOL
 from log import get_logger
 from metrics import recording

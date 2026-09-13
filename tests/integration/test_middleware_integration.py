@@ -3,7 +3,7 @@
 from fastapi import Request, status
 from fastapi.testclient import TestClient
 
-from configuration import configuration
+from configuration.configuration import configuration
 from models.api.responses.error import InternalServerErrorResponse
 
 

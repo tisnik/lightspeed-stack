@@ -27,7 +27,7 @@ from pydantic_ai.messages import (
     TextPartDelta,
 )
 
-from configuration import configuration
+from configuration.configuration import configuration
 from constants import MEDIA_TYPE_JSON
 from log import get_logger
 from models.common.agents import (

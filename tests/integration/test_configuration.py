@@ -2,7 +2,7 @@
 
 import pytest
 
-from configuration import configuration
+from configuration.configuration import configuration
 from models.config import ModelContextProtocolServer
 
 

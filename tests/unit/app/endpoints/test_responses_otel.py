@@ -19,7 +19,7 @@ from app.endpoints.responses import (
     _start_llm_inference_span,
     responses_endpoint_handler,
 )
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import ResponsesRequest
 from models.api.responses.error import ServiceUnavailableResponse
 from models.config import Action

@@ -17,7 +17,7 @@ from app.endpoints.prompts import (
     update_prompt_handler,
 )
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import PromptCreateRequest, PromptUpdateRequest
 from models.api.responses.successful import PromptDeleteResponse
 from tests.unit.utils.auth_helpers import mock_authorization_resolvers

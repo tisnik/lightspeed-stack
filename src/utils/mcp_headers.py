@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 from fastapi import Request
 
 import constants
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from log import get_logger
 from models.config import ModelContextProtocolServer
 

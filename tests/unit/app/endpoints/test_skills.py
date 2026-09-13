@@ -8,7 +8,7 @@ from pytest_mock import MockerFixture
 
 from app.endpoints.skills import skills_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.responses.successful import SkillsResponse
 from models.config import SkillsConfiguration
 from tests.unit.utils.auth_helpers import mock_authorization_resolvers

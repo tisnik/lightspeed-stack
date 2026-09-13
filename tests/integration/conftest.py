@@ -47,7 +47,7 @@ from sqlalchemy.pool import StaticPool
 import app.database
 from authentication.interface import AuthTuple
 from authentication.noop import NoopAuthDependency
-from configuration import configuration
+from configuration.configuration import configuration
 from models.config import Action
 from models.database.base import Base
 

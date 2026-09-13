@@ -11,7 +11,7 @@ from app.endpoints.saved_prompts import (
     list_saved_prompts_handler,
 )
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import SavedPromptCreateRequest
 from models.api.responses.successful import SavedPromptResponse
 from tests.integration.conftest import (

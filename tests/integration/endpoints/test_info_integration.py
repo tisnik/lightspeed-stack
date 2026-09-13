@@ -11,7 +11,7 @@ from pytest_mock import AsyncMockType, MockerFixture
 
 from app.endpoints.info import info_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from version import __version__
 
 

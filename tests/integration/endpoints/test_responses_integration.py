@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session
 
 from app.endpoints.responses import responses_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import ResponsesRequest
 from models.api.responses.successful import ResponsesResponse
 from models.common.moderation import ShieldModerationBlocked

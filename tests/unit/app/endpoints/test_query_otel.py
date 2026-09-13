@@ -12,7 +12,7 @@ from opentelemetry.sdk.trace.export.in_memory_span_exporter import (
 from pytest_mock import MockerFixture
 
 from app.endpoints.query import query_endpoint_handler
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import QueryRequest
 from models.api.responses.error import QuotaExceededResponse
 from models.common.moderation import ShieldModerationPassed

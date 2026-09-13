@@ -13,7 +13,7 @@ from pytest_mock import AsyncMockType, MockerFixture
 import constants
 from app.endpoints.query import query_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import QueryRequest
 from models.api.responses.successful import QueryResponse
 from tests.integration.conftest import (

@@ -11,7 +11,7 @@ from authentication.interface import AuthTuple
 from authorization.azure_token_manager import AzureEntraIDManager
 from authorization.middleware import authorize
 from client.ogx import AsyncOgxClientHolder
-from configuration import configuration
+from configuration.configuration import configuration
 from constants import ENDPOINT_PATH_QUERY, IMAGE_CONTENT_TYPES
 from log import get_logger
 from models.api.requests import QueryRequest

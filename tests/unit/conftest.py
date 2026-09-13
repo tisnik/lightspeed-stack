@@ -23,7 +23,7 @@ from opentelemetry.sdk.trace.export.in_memory_span_exporter import (
 )
 from pytest_mock import AsyncMockType, MockerFixture
 
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from constants import DEFAULT_LOGGER_NAME
 from models.common.responses.responses_api_params import ResponsesApiParams
 from models.config import ShieldConfiguration, SkillsConfiguration

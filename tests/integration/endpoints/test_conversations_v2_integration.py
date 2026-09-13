@@ -19,7 +19,7 @@ from app.endpoints.conversations_v2 import (
 from authentication.interface import AuthTuple
 from cache.cache_entry import CacheEntry
 from cache.sqlite_cache import SQLiteCache
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import ConversationUpdateRequest
 from models.config import SQLiteDatabaseConfiguration
 from tests.integration.conftest import (

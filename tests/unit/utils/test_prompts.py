@@ -5,7 +5,7 @@ from fastapi import HTTPException
 from pytest_mock import MockerFixture
 
 import constants
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import QueryRequest
 from models.config import CustomProfile
 from tests.unit import config_dict

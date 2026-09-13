@@ -56,7 +56,7 @@ from authentication import get_auth_dependency
 from authentication.interface import AuthTuple
 from authorization.middleware import authorize
 from client.ogx import AsyncOgxClientHolder
-from configuration import configuration
+from configuration.configuration import configuration
 from constants import MEDIA_TYPE_EVENT_STREAM
 from log import get_logger
 from models.api.requests import QueryRequest

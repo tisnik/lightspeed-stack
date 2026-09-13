@@ -23,7 +23,7 @@ from authentication.k8s import (
     K8sConfigurationError,
     get_user_info,
 )
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 
 
 class MockK8sResponseStatus:

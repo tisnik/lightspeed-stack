@@ -9,7 +9,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from authentication import get_auth_dependency
 from authentication.interface import AuthTuple
 from authorization.middleware import authorize
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from models.api.requests import SavedPromptCreateRequest
 from models.api.responses.constants import UNAUTHORIZED_OPENAPI_EXAMPLES

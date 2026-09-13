@@ -14,7 +14,7 @@ from pytest_mock import MockerFixture
 
 from app.endpoints.info import info_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from tests.unit.utils.auth_helpers import mock_authorization_resolvers
 
 

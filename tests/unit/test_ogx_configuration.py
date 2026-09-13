@@ -15,7 +15,7 @@ from models.config import (
     ServiceConfiguration,
     UserDataCollection,
 )
-from ogx_configuration import (
+from configuration.ogx_configuration import (
     _build_vector_io_config,
     construct_models_section,
     construct_storage_backends_section,

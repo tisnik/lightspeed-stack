@@ -7,7 +7,7 @@ from authentication import (
     noop_with_token,
     trusted_proxy,
 )
-from configuration import configuration
+from configuration.configuration import configuration
 from constants import (
     AUTH_MOD_K8S,
     AUTH_MOD_NOOP,

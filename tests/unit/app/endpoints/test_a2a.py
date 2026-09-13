@@ -51,7 +51,7 @@ from app.endpoints.a2a import (
     get_agent_card,
     get_lightspeed_agent_card,
 )
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.config import Action
 from tests.unit.conftest import make_openai_model, make_openai_models_list_response
 

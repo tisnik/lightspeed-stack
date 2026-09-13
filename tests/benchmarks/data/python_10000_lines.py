@@ -12,7 +12,7 @@ from pydantic import ValidationError
 import constants
 from cache.in_memory_cache import InMemoryCache
 from cache.sqlite_cache import SQLiteCache
-from configuration import AppConfig, LogicError
+from configuration.configuration import AppConfig, LogicError
 from models.config import CustomProfile, ModelContextProtocolServer
 from utils.checks import InvalidConfigurationError
 

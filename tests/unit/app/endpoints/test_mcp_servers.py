@@ -16,7 +16,7 @@ from pytest_mock import MockerFixture
 
 from app.endpoints import mcp_servers
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import MCPServerRegistrationRequest
 from models.api.responses.successful import (
     MCPServerDeleteResponse,

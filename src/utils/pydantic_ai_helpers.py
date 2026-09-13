@@ -11,7 +11,7 @@ from pydantic_ai.agent import Agent
 from pydantic_ai.capabilities import AbstractCapability, AgentCapability
 from pydantic_ai_skills import SkillsCapability
 
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from log import get_logger
 from models.common.responses.responses_api_params import ResponsesApiParams
 from models.common.skills import SkillMetadata

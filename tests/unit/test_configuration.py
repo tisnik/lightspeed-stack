@@ -12,7 +12,7 @@ from pydantic import ValidationError
 import constants
 from cache.in_memory_cache import InMemoryCache
 from cache.sqlite_cache import SQLiteCache
-from configuration import (
+from configuration.configuration import (
     AppConfig,
     LogicError,
     replace_env_vars_preserving_native_override,

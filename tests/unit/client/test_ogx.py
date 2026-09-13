@@ -17,7 +17,7 @@ from pytest_mock import MockerFixture
 
 from authorization.azure_token_manager import AzureEntraIDManager
 from client.ogx import AsyncOgxClientHolder
-from configuration import AppConfig, AzureEntraIdConfiguration
+from configuration.configuration import AppConfig, AzureEntraIdConfiguration
 from models.config import OgxConfiguration
 from tests.unit.conftest import make_openai_model, make_openai_models_list_response
 from utils.types import Singleton

@@ -25,7 +25,7 @@ from app.endpoints.vector_stores import (
     update_vector_store,
 )
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import (
     VectorStoreCreateRequest,
     VectorStoreFileCreateRequest,

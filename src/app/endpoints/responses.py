@@ -32,7 +32,7 @@ from authentication.interface import AuthTuple
 from authorization.azure_token_manager import AzureEntraIDManager
 from authorization.middleware import authorize
 from client.ogx import AsyncOgxClientHolder
-from configuration import configuration
+from configuration.configuration import configuration
 from constants import ENDPOINT_PATH_RESPONSES, SUBSTITUTED_INSTRUCTIONS_PLACEHOLDER
 from log import get_logger
 from metrics import recording

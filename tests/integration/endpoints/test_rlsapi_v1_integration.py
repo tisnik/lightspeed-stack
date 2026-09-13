@@ -20,7 +20,7 @@ from pytest_mock import MockerFixture
 import constants
 from app.endpoints.rlsapi_v1 import infer_endpoint
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests.rlsapi import (
     RlsapiV1Attachment,
     RlsapiV1CLA,

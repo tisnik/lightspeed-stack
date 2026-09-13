@@ -8,7 +8,7 @@ from fastapi import HTTPException, status
 from fastapi.testclient import TestClient
 
 from app.endpoints.stream_interrupt import stream_interrupt_endpoint_handler
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import StreamingInterruptRequest
 from utils.stream_interrupts import StreamInterruptRegistry
 

@@ -20,7 +20,7 @@ import yaml
 from ogx.core.stack import replace_env_vars
 
 from models.config import UnifiedInferenceProvider
-from ogx_configuration import (
+from configuration.ogx_configuration import (
     CONDITIONAL_OPENAI_PROVIDER_ID,
     PROVIDER_TYPE_MAP,
     apply_high_level_inference,

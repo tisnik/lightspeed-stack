@@ -16,7 +16,7 @@ from authorization.azure_token_manager import (
     TOKEN_EXPIRATION_LEEWAY,
     AzureEntraIDManager,
 )
-from configuration import AzureEntraIdConfiguration
+from configuration.configuration import AzureEntraIdConfiguration
 from constants import DEFAULT_LOGGER_NAME
 from utils.types import Singleton
 

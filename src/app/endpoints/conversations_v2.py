@@ -8,7 +8,7 @@ from opentelemetry import trace
 from authentication import get_auth_dependency
 from authorization.middleware import authorize
 from cache.cache_entry import CacheEntry
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from models.api.requests import ConversationUpdateRequest
 from models.api.responses.constants import UNAUTHORIZED_OPENAPI_EXAMPLES

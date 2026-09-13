@@ -2,7 +2,7 @@
 
 import metrics
 from client.ogx import AsyncOgxClientHolder
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from utils.endpoints import check_configuration_loaded
 from utils.model_list import parse_model_list_response

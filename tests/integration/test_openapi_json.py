@@ -9,7 +9,7 @@ import pytest
 import requests
 from fastapi.testclient import TestClient
 
-from configuration import configuration
+from configuration.configuration import configuration
 
 # Strategy:
 # - Load the OpenAPI document from docs/openapi.json and from endpoint handler

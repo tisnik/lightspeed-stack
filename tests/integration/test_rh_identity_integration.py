@@ -10,7 +10,7 @@ from collections.abc import Generator
 import pytest
 from fastapi.testclient import TestClient
 
-from configuration import configuration
+from configuration.configuration import configuration
 
 
 @pytest.fixture

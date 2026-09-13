@@ -7,7 +7,7 @@ from fastapi import HTTPException, Request
 from pytest_mock import MockerFixture
 
 from authentication.trusted_proxy import TrustedProxyAuthDependency
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from constants import NO_USER_TOKEN
 from models.config import TrustedProxyConfiguration, TrustedProxyServiceAccount
 

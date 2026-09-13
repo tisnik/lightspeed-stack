@@ -16,7 +16,7 @@ from pytest_mock import MockerFixture
 
 from app.endpoints.feedback import feedback_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import configuration
+from configuration.configuration import configuration
 from models.api.requests import FeedbackRequest
 from models.common.feedback import FeedbackCategory
 

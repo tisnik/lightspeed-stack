@@ -12,7 +12,7 @@ from fastapi import HTTPException, Request, status
 
 from authentication.interface import NO_AUTH_TUPLE, AuthInterface, AuthTuple
 from authentication.utils import extract_user_token
-from configuration import configuration
+from configuration.configuration import configuration
 from constants import (
     DEFAULT_USER_NAME,
     DEFAULT_USER_UID,

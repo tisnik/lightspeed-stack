@@ -8,7 +8,7 @@ import asyncio
 from typing import Any
 
 import constants
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from models.common.turn_summary import RAGChunk
 

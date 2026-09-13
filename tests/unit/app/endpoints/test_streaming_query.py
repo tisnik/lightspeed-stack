@@ -17,7 +17,7 @@ from app.endpoints.streaming_query import (
     generate_response_with_compaction,
     streaming_query_endpoint_handler,
 )
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from constants import (
     INTERRUPTED_RESPONSE_MESSAGE,
     MEDIA_TYPE_TEXT,

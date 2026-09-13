@@ -17,7 +17,7 @@ from opentelemetry import trace
 from pydantic import AnyUrl, ValidationError
 
 import constants
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from models.common.query import SolrVectorSearchRequest
 from models.common.responses.types import ResponseInput

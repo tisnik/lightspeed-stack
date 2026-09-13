@@ -15,7 +15,7 @@ from fastapi import Request
 
 from app.endpoints.skills import skills_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.responses.successful import SkillsResponse
 from models.config import SkillsConfiguration
 

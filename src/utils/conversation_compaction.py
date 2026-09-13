@@ -53,7 +53,7 @@ from ogx_client import AsyncOgxClient
 
 from cache.cache import Cache
 from cache.cache_error import CacheError
-from configuration import configuration
+from configuration.configuration import configuration
 from log import get_logger
 from models.api.responses.error import UnprocessableEntityResponse
 from models.common.responses.responses_api_params import ResponsesApiParams

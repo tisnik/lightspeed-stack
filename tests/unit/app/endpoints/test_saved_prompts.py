@@ -21,7 +21,7 @@ from app.endpoints.saved_prompts import (
     router,
 )
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import SavedPromptCreateRequest
 from models.config import Action
 from tests.unit.utils.auth_helpers import mock_authorization_resolvers

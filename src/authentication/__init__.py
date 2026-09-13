@@ -13,7 +13,7 @@ from authentication import (
     trusted_proxy,
 )
 from authentication.interface import AuthInterface
-from configuration import LogicError, configuration
+from configuration.configuration import LogicError, configuration
 from log import get_logger
 
 logger = get_logger(__name__)

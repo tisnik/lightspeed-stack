@@ -13,7 +13,7 @@ from app.endpoints.health import (
     readiness_probe_get_method,
 )
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.common import HealthStatus
 
 

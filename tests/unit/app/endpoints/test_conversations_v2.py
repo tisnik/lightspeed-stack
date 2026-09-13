@@ -24,7 +24,7 @@ from app.endpoints.conversations_v2 import (
     update_conversation_endpoint_handler,
 )
 from cache.cache_entry import CacheEntry
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import ConversationUpdateRequest
 from models.api.responses.successful import ConversationUpdateResponse
 from models.common import ConversationData

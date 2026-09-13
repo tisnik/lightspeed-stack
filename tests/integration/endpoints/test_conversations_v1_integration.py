@@ -19,7 +19,7 @@ from app.endpoints.conversations_v1 import (
     update_conversation_endpoint_handler,
 )
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 from models.api.requests import ConversationUpdateRequest
 from models.database.conversations import UserConversation, UserTurn
 from tests.integration.conftest import (

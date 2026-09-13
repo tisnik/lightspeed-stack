@@ -5,7 +5,7 @@ from typing import Optional
 from fastapi import HTTPException
 
 import constants
-from configuration import configuration
+from configuration.configuration import configuration
 from models.api.responses.error import UnprocessableEntityResponse
 
 

@@ -10,7 +10,7 @@ from pytest_mock import MockerFixture
 
 from app.endpoints.root import root_endpoint_handler
 from authentication.interface import AuthTuple
-from configuration import AppConfig
+from configuration.configuration import AppConfig
 
 
 @pytest.fixture(name="mock_ogx_client")
