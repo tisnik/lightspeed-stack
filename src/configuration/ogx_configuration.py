@@ -80,7 +80,7 @@ API_KEY_FIELD_MAP: dict[str, str] = {
 # Package-relative path to the built-in default baseline run.yaml shipped with
 # LCORE, used when unified mode selects baseline "default" or "byo-llm" without
 # a profile. "byo-llm" loads this file then strips the conditional OpenAI row.
-DEFAULT_BASELINE_RESOURCE: Path = Path(__file__).parent / "data" / "default_run.yaml"
+DEFAULT_BASELINE_RESOURCE: Path = Path(__file__).parent.parent / "data" / "default_run.yaml"
 
 # Unevaluated provider_id of the built-in OpenAI row in default_run.yaml
 # (LCORE-3607). Matched as "openai" during high-level replace, and stripped
