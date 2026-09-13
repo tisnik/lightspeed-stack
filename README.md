@@ -129,8 +129,7 @@ Lightspeed Core Stack is based on the FastAPI framework (Uvicorn). The service i
 
 # Prerequisites
 
-* Python 3.12, or 3.13
-    - please note that currently Python 3.14 is not officially supported
+* Python 3.12, 3.13, or 3.14
     - all sources are made (backward) compatible with Python 3.12; it is checked on CI
 
 * OpenAI API Key (Recommended for Getting Started)
