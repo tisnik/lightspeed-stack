@@ -60,8 +60,8 @@ from utils.endpoints import (
     check_configuration_loaded,
     validate_and_retrieve_conversation,
 )
-from utils.mcp_headers import McpHeaders, mcp_headers_dependency
-from utils.mcp_oauth_probe import check_mcp_auth
+from utils.mcp.mcp_headers import McpHeaders, mcp_headers_dependency
+from utils.mcp.mcp_oauth_probe import check_mcp_auth
 from utils.otel_tracing import (
     SpanAttributes,
     SpanEvents,

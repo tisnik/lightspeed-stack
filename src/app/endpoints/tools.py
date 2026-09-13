@@ -23,14 +23,14 @@ from models.common.tools import CatalogTool
 from models.config import Action, ModelContextProtocolServer
 from utils.builtin_tools import get_file_search_tools
 from utils.endpoints import check_configuration_loaded
-from utils.mcp_headers import (
+from utils.mcp.mcp_headers import (
     McpHeaders,
     build_mcp_headers,
     find_unresolved_auth_headers,
     mcp_headers_dependency,
 )
-from utils.mcp_oauth_probe import check_mcp_auth
-from utils.mcp_tools import list_mcp_tools
+from utils.mcp.mcp_oauth_probe import check_mcp_auth
+from utils.mcp.mcp_tools import list_mcp_tools
 from utils.pydantic_ai_helpers import get_agent_capability_tools
 from utils.tool_formatter import build_catalog_tool
 
